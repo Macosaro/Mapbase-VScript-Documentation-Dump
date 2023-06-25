@@ -1,5 +1,5 @@
-import re
 import os
+import re
 from typing import Literal
 
 
@@ -148,7 +148,7 @@ def generate_docs(info_dict: dict[str, dict[str, Instance]], category: str):
                 )
             case _:
                 pass
-        
+
         return_list.append(return_documentation[:-1])
 
     return return_list
