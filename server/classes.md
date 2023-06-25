@@ -212,7 +212,7 @@ Get
 bool AI_EnemyInfo_t::Unforgettable()
 ```
 
-## CAI_ActBusyGoal
+## CAI_ActBusyGoal(CAI_GoalEntity)
 
 A goal entity which makes NPCs act busy.
 
@@ -242,7 +242,7 @@ Force a NPC to stop busying.
 void CAI_ActBusyGoal::StopBusy(handle)
 ```
 
-## CAI_BaseActor
+## CAI_BaseActor(CAI_BaseNPC)
 
 The base class for NPCs which act in complex choreo scenes.
 
@@ -264,7 +264,7 @@ Add a potential look target position for this actor with the specified importanc
 void CAI_BaseActor::AddLookTargetPos(Vector, float, float, float)
 ```
 
-## CAI_BaseNPC
+## CAI_BaseNPC(CBaseCombatCharacter)
 
 The base class all NPCs derive from.
 
@@ -878,7 +878,7 @@ Speak a raw sentence as though it were played through the Response System. Retur
 int CAI_Expresser::SpeakRawSentence(string, float)
 ```
 
-## CAI_GoalEntity
+## CAI_GoalEntity(CBaseEntity)
 
 The base class for goal entities used to control NPC behavior.
 
@@ -900,7 +900,7 @@ Get the number of actors using this goal entity.
 int CAI_GoalEntity::NumActors()
 ```
 
-## CAI_Hint
+## CAI_Hint(CBaseEntity)
 
 An entity which gives contextual pointers for NPCs.
 
@@ -1354,7 +1354,7 @@ Gets the type of tracer this ammo type uses.
 int CAmmoDef::TracerType(int)
 ```
 
-## CBaseAnimating
+## CBaseAnimating(CBaseEntity)
 
 Animating models
 
@@ -1728,7 +1728,7 @@ Called when this entity creates/turns into a server-side ragdoll.
 void CBaseAnimating -> OnServerRagdoll(handle [ragdoll], bool [submodel])
 ```
 
-## CBaseAnimatingOverlay
+## CBaseAnimatingOverlay(CBaseAnimating)
 
 Animating models which support dynamic animation layers/overlays.
 
@@ -1958,7 +1958,7 @@ Sets the weight of the specified layer index.
 void CBaseAnimatingOverlay::SetLayerWeight(int, float)
 ```
 
-## CBaseCombatCharacter
+## CBaseCombatCharacter(CBaseFlex)
 
 The base class shared by players and NPCs.
 
@@ -2238,7 +2238,7 @@ Called when a character's relationship to another entity is requested. Returning
 int CBaseCombatCharacter -> RelationshipType(handle [entity], int [def])
 ```
 
-## CBaseCombatWeapon
+## CBaseCombatWeapon(CBaseAnimating)
 
 The base class for all equippable weapons.
 
@@ -3922,7 +3922,7 @@ Called for every single VPhysics-related collision experienced by this entity.
 void CBaseEntity -> VPhysicsCollision(handle [entity], float [speed], Vector [point], Vector [normal])
 ```
 
-## CBaseFilter
+## CBaseFilter(CBaseEntity)
 
 All entities which could be used as filters.
 
@@ -3968,7 +3968,7 @@ Used by filter_damage_redirect to distinguish between standalone filter calls an
 bool CBaseFilter::PassesFinalDamageFilter(handle, handle)
 ```
 
-## CBaseFlex
+## CBaseFlex(CBaseAnimatingOverlay)
 
 Animated characters who have vertex flex capability.
 
@@ -3998,7 +3998,7 @@ Sets the entity's eye target.
 void CBaseFlex::SetViewtarget(Vector)
 ```
 
-## CBaseGrenade
+## CBaseGrenade(CBaseAnimating)
 
 The base class for grenades.
 
@@ -4100,7 +4100,7 @@ Sets the grenade's thrower.
 void CBaseGrenade::SetThrower(handle)
 ```
 
-## CBasePlayer
+## CBasePlayer(CBaseCombatCharacter)
 
 The player entity.
 
@@ -4418,7 +4418,7 @@ Called when running a player command on the server.
 void CBasePlayer -> PlayerRunCommand(handle [command])
 ```
 
-## CBaseTrigger
+## CBaseTrigger(CBaseEntity)
 
 Trigger entity
 
@@ -5022,7 +5022,7 @@ Called when an entity spawns. Requires EnableEntityListening() to be fired befor
 void CEntities -> OnEntitySpawned(handle [entity])
 ```
 
-## CEnvEntityMaker
+## CEnvEntityMaker(CBaseEntity)
 
 env_entity_maker
 
@@ -5060,7 +5060,7 @@ Create an entity at the location of a named entity
 void CEnvEntityMaker::SpawnEntityAtNamedEntityOrigin(string)
 ```
 
-## CFilterScript
+## CFilterScript(CBaseFilter)
 
 The filter_script entity which allows VScript functions to hook onto filter methods.
 
@@ -5790,7 +5790,7 @@ returns the command line
 string CGlobalSys::GetCommandLine()
 ```
 
-## CHL2_Player
+## CHL2_Player(CBasePlayer)
 
 The HL2 player entity.
 
@@ -5898,7 +5898,7 @@ Gets the current language's token as a UTF-8 string (not Unicode).
 string CLocalize::GetTokenAsUTF8(string)
 ```
 
-## CLogicExternalData
+## CLogicExternalData(CBaseEntity)
 
 An entity which loads keyvalues from an external data file.
 
@@ -6022,7 +6022,7 @@ Loads a custom talker file.
 void CMapbaseSystem::LoadCustomTalkerFile(string)
 ```
 
-## CNPC_Citizen
+## CNPC_Citizen(CAI_BaseActor)
 
 npc_citizen from Half-Life 2
 
@@ -6574,7 +6574,7 @@ Sets a netprop from an array to the specified vector.
 void CNetPropManager::SetPropVectorArray(handle, string, Vector, int)
 ```
 
-## CPointCommentaryNode
+## CPointCommentaryNode(CBaseAnimating)
 
 Commentary nodes which play commentary in commentary mode.
 
@@ -6694,7 +6694,7 @@ Called just before commentary begins. Use this to modify variables or commentary
 bool CPointCommentaryNode -> PreStartCommentary()
 ```
 
-## CPropVehicle
+## CPropVehicle(CBaseAnimating)
 
 The base class for four-wheel physics vehicles.
 
@@ -6716,7 +6716,7 @@ Get a vehicle's type.
 int CPropVehicle::GetVehicleType()
 ```
 
-## CPropVehicleDriveable
+## CPropVehicleDriveable(CPropVehicle)
 
 The base class for driveable vehicles.
 
@@ -6770,7 +6770,7 @@ Stop the engine.
 void CPropVehicleDriveable::StopEngine()
 ```
 
-## CProtoSniper
+## CProtoSniper(CAI_BaseNPC)
 
 Combine sniper NPC.
 
@@ -6838,7 +6838,7 @@ void CProtoSniper::LaserOn(Vector, Vector)
 void CProtoSniper::ScopeGlint()
 ```
 
-## CRagdollProp
+## CRagdollProp(CBaseAnimating)
 
 Ragdoll physics prop.
 
@@ -6884,7 +6884,7 @@ Sets the ragdoll's source classname.
 void CRagdollProp::SetSourceClassName(string)
 ```
 
-## CSceneEntity
+## CSceneEntity(CBaseEntity)
 
 Choreographed scene which controls animation and/or dialog on one or more actors.
 
@@ -6946,7 +6946,7 @@ Removes a team (by index) from the broadcast list
 void CSceneEntity::RemoveBroadcastTeamTarget(int)
 ```
 
-## CSceneListManager
+## CSceneListManager(CBaseEntity)
 
 Stores choreo scenes and cleans them up when a later scene in the list begins playing.
 
@@ -7650,7 +7650,7 @@ Removes from the damage.
 void CTakeDamageInfo::SubtractDamage(float)
 ```
 
-## CTriggerCamera
+## CTriggerCamera(CBaseEntity)
 
 Server-side camera entity
 
@@ -7848,7 +7848,7 @@ Sets current weapon subtype id.
 void CUserCmd::SetWeaponSubtype(int)
 ```
 
-## CWeaponCustomScripted
+## CWeaponCustomScripted(CBaseCombatWeapon)
 
 Special weapon class with tons of hooks
 

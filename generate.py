@@ -9,6 +9,7 @@ class Instance:
     Description: str
     Value: str
     Signature: str
+    Base: str
 
     def __init__(self, text_info: str) -> None:
         for info in text_info.splitlines():
@@ -118,7 +119,10 @@ def generate_docs(info_dict: dict[str, dict[str, Instance]], category: str):
                         return_documentation += class_instance.Description + "\n"
                     return_documentation += generate_table(class_instance.Values)
                 case "Class":
-                    return_documentation += f"## {class_instance.Name}\n\n"
+                    return_documentation += f"## {class_instance.Name}"
+                    if class_instance.Base:
+                        return_documentation += f"({class_instance.Base})"
+                    return_documentation += "\n\n"
                     if class_instance.Description:
                         return_documentation += class_instance.Description + "\n\n"
                     if class_instance.Members:
