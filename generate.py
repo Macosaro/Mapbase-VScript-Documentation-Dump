@@ -62,7 +62,7 @@ def gather_info(raw: str):
             and (enum_const := inst.Name.split(".")[0]) in info["Enum"].keys()
         ):
             info["Enum"][enum_const].Values.append(inst)
-        if (
+        elif (
             inst.Type == "Function"
             and (class_func := inst.Name.split("::")[0]) in info["Class"].keys()
         ):
