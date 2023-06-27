@@ -698,6 +698,8 @@ void Button::SizeToContents()
 
 The ammo type definition manager.
 
+Can be accessed with `AmmoDef` or `CAmmoDef`.
+
 ### Functions
 
 #### CAmmoDef::DamageForce
@@ -799,6 +801,8 @@ int CAmmoDef::TracerType(int)
 ## CConvars
 
 Provides an interface to convars.
+
+Can be accessed with `Convars` or `CConvars`.
 
 ### Functions
 
@@ -933,6 +937,8 @@ void CConvars::UnregisterCommand(string)
 ## CDebugOverlayScriptHelper
 
 CDebugOverlayScriptHelper
+
+Can be accessed with `debugoverlay` or `CDebugOverlayScriptHelper`.
 
 ### Functions
 
@@ -1122,6 +1128,8 @@ void CDebugOverlayScriptHelper::YawArrow(Vector, float, float, float, int, int, 
 
 ## CEffects
 
+Can be accessed with `effects` or `CEffects`.
+
 ### Functions
 
 #### CEffects::Bubbles
@@ -1175,6 +1183,8 @@ void CEffects::Sprite(Vector, Vector, float, int, int, int, int, float, int)
 ## CEntities
 
 The global list of entities
+
+Can be accessed with `Entities` or `CEntities`.
 
 ### Functions
 
@@ -1263,6 +1273,8 @@ void CEntities -> OnEntityDeleted(handle [entity])
 ## CGameRules
 
 The container of the game's rules, handling behavior which could be different on a game-by-game basis.
+
+Can be accessed with `GameRules` or `CGameRules`.
 
 ### Functions
 
@@ -1614,6 +1626,8 @@ handle CGameTrace::Surface()
 
 GlobalSys
 
+Can be accessed with `GlobalSys` or `CGlobalSys`.
+
 ### Functions
 
 #### CGlobalSys::CommandLineCheck
@@ -1657,6 +1671,8 @@ string CGlobalSys::GetCommandLine()
 ```
 
 ## CGlowObjectManager
+
+Can be accessed with `GlowObjectManager` or `CGlowObjectManager`.
 
 ### Functions
 
@@ -1702,6 +1718,8 @@ void CGlowObjectManager::Unregister(int)
 
 Accesses functions related to localization strings.
 
+Can be accessed with `Localize` or `CLocalize`.
+
 ### Functions
 
 #### CLocalize::AddStringAsUTF8
@@ -1723,6 +1741,8 @@ string CLocalize::GetTokenAsUTF8(string)
 ## CMapbaseSystem
 
 All-purpose Mapbase system primarily used for map-specific files.
+
+Can be accessed with `Mapbase` or `CMapbaseSystem`.
 
 ### Functions
 
@@ -1817,6 +1837,8 @@ void CMapbaseSystem::LoadCustomVGUIFile(string)
 ## CNetMsg
 
 Network messages
+
+Can be accessed with `NetMsg` or `CNetMsg`.
 
 ### Functions
 
@@ -2115,6 +2137,8 @@ void CNetMsg::WriteWord(int)
 ## CNetPropManager
 
 Allows reading and updating the network properties of an entity.
+
+Can be accessed with `NetProps` or `CNetPropManager`.
 
 ### Functions
 
@@ -2595,6 +2619,8 @@ void CScriptMaterialProxy::SetVarVector(int, Vector)
 ```
 
 ## CSteamAPI
+
+Can be accessed with `steam` or `CSteamAPI`.
 
 ### Functions
 
@@ -5916,6 +5942,8 @@ void Frame::SetZPos(int)
 
 ## IInput
 
+Can be accessed with `input` or `IInput`.
+
 ### Functions
 
 #### IInput::BindingForKey
@@ -6142,6 +6170,8 @@ void IPhysicsObject::Wake()
 
 ## ISurface
 
+Can be accessed with `surface` or `ISurface`.
+
 ### Functions
 
 #### ISurface::AddCustomFontFile
@@ -6325,6 +6355,8 @@ int ISurface::ValidateTexture(string, bool, bool, bool)
 ```
 
 ## IVGui
+
+Can be accessed with `vgui` or `IVGui`.
 
 ### Functions
 

@@ -1,0 +1,21 @@
+CAI_Network: Can be accessed with `AINetwork` or `CAI_Network`.
+CLocalize: Can be accessed with `Localize` or `CLocalize`.
+CConvars: Can be accessed with `Convars` or `CConvars`.
+CGlobalSys: Can be accessed with `GlobalSys` or `CGlobalSys`.
+CGameRules: Can be accessed with `GameRules` or `CGameRules`.
+CAI_SquadManager: Can be accessed with `Squads` or `CAI_SquadManager`.
+CAmmoDef: Can be accessed with `AmmoDef` or `CAmmoDef`.
+CDebugOverlayScriptHelper: Can be accessed with `debugoverlay` or `CDebugOverlayScriptHelper`.
+CNetPropManager: Can be accessed with `NetProps` or `CNetPropManager`.
+CNetMsg: Can be accessed with `NetMsg` or `CNetMsg`.
+CGlobalState: Can be accessed with `Globals` or `CGlobalState`.
+CMapbaseSystem: Can be accessed with `Mapbase` or `CMapbaseSystem`.
+CEntities: Can be accessed with `Entities` or `CEntities`.
+CBasePlayer: See [`CHL2_Player`](#chl2_playercbaseplayer) for the Half-Life 2 player entity.
+CHL2_Player: Can be accessed with `player` or `CHL2_Player`.
+CEffects: Can be accessed with `effects` or `CEffects`.
+CSteamAPI: Can be accessed with `steam` or `CSteamAPI`.
+IVGui: Can be accessed with `vgui` or `IVGui`.
+ISurface: Can be accessed with `surface` or `ISurface`.
+CGlowObjectManager: Can be accessed with `GlowObjectManager` or `CGlowObjectManager`.
+IInput: Can be accessed with `input` or `IInput`.

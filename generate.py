@@ -37,12 +37,21 @@ pretty_names = {
     "Hook": "Global Hooks",
 }
 
-with open("mapbase_7.1.txt", "r") as file:
+with open("raw/mapbase_7.1.txt", "r") as file:
     dump = file.read()
+with open("raw/notes.txt", "r") as file:
+    notes_text = file.read()
 
 version, dump = dump.split("\n", 1)
 
 server_text, client_text = dump.split("\nDOCUMENTATION_CLIENT\n")
+
+notes = {
+    name: note
+    for name, note in (
+        note_line.split(": ", 1) for note_line in notes_text.splitlines()
+    )
+}
 
 
 def gather_info(raw: str):
@@ -57,28 +66,26 @@ def gather_info(raw: str):
         line = re.sub(r"\n?={37}\n?", "", line)
         inst = Instance(line)
         # forgive me for this
-        if (
-            inst.Type == "Constant"
-            and (enum_const := inst.Name.split(".")[0]) in info["Enum"].keys()
-        ):
-            info["Enum"][enum_const].Values.append(inst)
-        elif (
-            inst.Type == "Function"
-            and (class_func := inst.Name.split("::")[0]) in info["Class"].keys()
-        ):
-            info["Class"][class_func].Functions.append(inst)
-        elif (
-            inst.Type == "Member"
-            and (class_member := inst.Name.split(".")[0]) in info["Class"].keys()
-        ):
-            info["Class"][class_member].Members.append(inst)
-        elif (
-            inst.Type == "Hook"
-            and (class_hook := inst.Name.split(" -> ")[0]) in info["Class"].keys()
-        ):
-            info["Class"][class_hook].Hooks.append(inst)
-        else:
-            info[inst.Type][inst.Name] = inst
+        match inst.Type:
+            case "Constant":
+                if (enum_const := inst.Name.split(".")[0]) in info["Enum"].keys():
+                    info["Enum"][enum_const].Values.append(inst)
+                    continue
+            case "Function":
+                if (cls_func := inst.Name.split("::")[0]) in info["Class"].keys():
+                    info["Class"][cls_func].Functions.append(inst)
+                    continue
+            case "Member":
+                if (cls_member := inst.Name.split(".")[0]) in info["Class"].keys():
+                    info["Class"][cls_member].Members.append(inst)
+                    continue
+            case "Hook":
+                if (cls_hook := inst.Name.split(" -> ")[0]) in info["Class"].keys():
+                    info["Class"][cls_hook].Hooks.append(inst)
+                    continue
+            case _:
+                pass
+        info[inst.Type][inst.Name] = inst
 
     return info
 
@@ -125,6 +132,8 @@ def generate_docs(info_dict: dict[str, dict[str, Instance]], category: str):
                     return_documentation += "\n\n"
                     if class_instance.Description:
                         return_documentation += class_instance.Description + "\n\n"
+                    if notes.get(class_instance.Name) is not None:
+                        return_documentation += notes[class_instance.Name] + "\n\n"
                     if class_instance.Members:
                         return_documentation += signed_page(
                             class_instance.Members, "Members"

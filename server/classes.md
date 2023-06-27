@@ -982,6 +982,8 @@ float CAI_Hint::Yaw()
 
 The global list of AI nodes.
 
+Can be accessed with `AINetwork` or `CAI_Network`.
+
 ### Functions
 
 #### CAI_Network::GetNodeHint
@@ -1210,6 +1212,8 @@ void CAI_Squad::UpdateEnemyMemory(handle, handle, Vector)
 
 Manager for NPC squads.
 
+Can be accessed with `Squads` or `CAI_SquadManager`.
+
 ### Functions
 
 #### CAI_SquadManager::FindCreateSquad
@@ -1255,6 +1259,8 @@ int CAI_SquadManager::NumSquads()
 ## CAmmoDef
 
 The ammo type definition manager.
+
+Can be accessed with `AmmoDef` or `CAmmoDef`.
 
 ### Functions
 
@@ -4104,6 +4110,8 @@ void CBaseGrenade::SetThrower(handle)
 
 The player entity.
 
+See [`CHL2_Player`](#chl2_playercbaseplayer) for the Half-Life 2 player entity.
+
 ### Functions
 
 #### CBasePlayer::DeathCount
@@ -4494,6 +4502,8 @@ bool CBaseTrigger::UsesFilter()
 
 Provides an interface to convars.
 
+Can be accessed with `Convars` or `CConvars`.
+
 ### Functions
 
 #### CConvars::GetBool
@@ -4635,6 +4645,8 @@ void CConvars::UnregisterCommand(string)
 ## CDebugOverlayScriptHelper
 
 CDebugOverlayScriptHelper
+
+Can be accessed with `debugoverlay` or `CDebugOverlayScriptHelper`.
 
 ### Functions
 
@@ -4833,6 +4845,8 @@ void CDebugOverlayScriptHelper::YawArrow(Vector, float, float, float, int, int, 
 ## CEntities
 
 The global list of entities
+
+Can be accessed with `Entities` or `CEntities`.
 
 ### Functions
 
@@ -5300,6 +5314,8 @@ void CFourWheelVehiclePhysics::SetThrottle(float)
 
 The container of the game's rules, handling behavior which could be different on a game-by-game basis.
 
+Can be accessed with `GameRules` or `CGameRules`.
+
 ### Functions
 
 #### CGameRules::AllowFlashlight
@@ -5686,6 +5702,8 @@ handle CGameTrace::Surface()
 
 Global state system.
 
+Can be accessed with `Globals` or `CGlobalState`.
+
 ### Functions
 
 #### CGlobalState::AddGlobal
@@ -5748,6 +5766,8 @@ void CGlobalState::SetState(int, int)
 
 GlobalSys
 
+Can be accessed with `GlobalSys` or `CGlobalSys`.
+
 ### Functions
 
 #### CGlobalSys::CommandLineCheck
@@ -5793,6 +5813,8 @@ string CGlobalSys::GetCommandLine()
 ## CHL2_Player(CBasePlayer)
 
 The HL2 player entity.
+
+Can be accessed with `player` or `CHL2_Player`.
 
 ### Functions
 
@@ -5880,6 +5902,8 @@ void CHL2_Player::SetAuxPower(float)
 
 Accesses functions related to localization strings.
 
+Can be accessed with `Localize` or `CLocalize`.
+
 ### Functions
 
 #### CLocalize::AddStringAsUTF8
@@ -5955,6 +5979,8 @@ void CLogicExternalData::SetKeyValues(handle)
 ## CMapbaseSystem
 
 All-purpose Mapbase system primarily used for map-specific files.
+
+Can be accessed with `Mapbase` or `CMapbaseSystem`.
 
 ### Functions
 
@@ -6081,6 +6107,8 @@ string CNPC_Citizen -> SelectModel(string [model_path], string [model_head], int
 ## CNetMsg
 
 Network messages
+
+Can be accessed with `NetMsg` or `CNetMsg`.
 
 ### Functions
 
@@ -6387,6 +6415,8 @@ void CNetMsg::WriteWord(int)
 ## CNetPropManager
 
 Allows reading and updating the network properties of an entity.
+
+Can be accessed with `NetProps` or `CNetPropManager`.
 
 ### Functions
 
