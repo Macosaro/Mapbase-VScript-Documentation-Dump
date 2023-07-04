@@ -62,30 +62,23 @@ def gather_info(raw: str):
         "Function": {},
         "Hook": {},
     }
+
     for line in raw.split("\n\n"):
         line = re.sub(r"\n?={37}\n?", "", line)
         inst = Instance(line)
-        # forgive me for this
+
+        fname = inst.Name
         match inst.Type:
-            case "Constant":
-                if (enum_const := inst.Name.split(".")[0]) in info["Enum"].keys():
-                    info["Enum"][enum_const].Values.append(inst)
-                    continue
-            case "Function":
-                if (cls_func := inst.Name.split("::")[0]) in info["Class"].keys():
-                    info["Class"][cls_func].Functions.append(inst)
-                    continue
-            case "Member":
-                if (cls_member := inst.Name.split(".")[0]) in info["Class"].keys():
-                    info["Class"][cls_member].Members.append(inst)
-                    continue
-            case "Hook":
-                if (cls_hook := inst.Name.split(" -> ")[0]) in info["Class"].keys():
-                    info["Class"][cls_hook].Hooks.append(inst)
-                    continue
+            case "Constant" if (name := fname.split(".")[0]) in info["Enum"].keys():
+                info["Enum"][name].Values.append(inst)
+            case "Function" if (name := fname.split("::")[0]) in info["Class"].keys():
+                info["Class"][name].Functions.append(inst)
+            case "Member" if (name := fname.split(".")[0]) in info["Class"].keys():
+                info["Class"][name].Members.append(inst)
+            case "Hook" if (name := fname.split(" -> ")[0]) in info["Class"].keys():
+                info["Class"][name].Hooks.append(inst)
             case _:
-                pass
-        info[inst.Type][inst.Name] = inst
+                info[inst.Type][fname] = inst
 
     return info
 
